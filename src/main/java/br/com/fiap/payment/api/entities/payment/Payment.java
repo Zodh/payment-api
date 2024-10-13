@@ -3,6 +3,8 @@ package br.com.fiap.payment.api.entities.payment;
 import br.com.fiap.payment.api.entities.exception.DomainException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Objects;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
@@ -21,13 +23,19 @@ public class Payment {
   private LocalDateTime dueAt;
   private String callbackUrl;
 
-  public Payment(Long externalPaymentId, BigDecimal amount, String currency, Long externalProductId) {
+  public Payment() {
+  }
+
+  public Payment(Long externalPaymentId, BigDecimal amount, String currency, Long externalProductId, LocalDateTime dueAt) {
     validate(externalPaymentId, amount, currency, externalProductId);
     this.externalPaymentId = externalPaymentId;
     this.amount = amount;
     this.currency = currency;
     this.externalProductId = externalProductId;
     this.status = PaymentStatusEnum.PENDING;
+    if (dueAt != null && dueAt.isAfter(LocalDateTime.now())) {
+      this.dueAt = dueAt;
+    }
   }
 
   public Payment(Long id, Long externalPaymentId, Long externalProductId, BigDecimal amount,
@@ -61,5 +69,14 @@ public class Payment {
     }
   }
 
+  private static final DateTimeFormatter formatter = new DateTimeFormatterBuilder().appendPattern("dd/MM/yyyy hh:mm").toFormatter();
+
+  public String pay() {
+    if (dueAt != null && LocalDateTime.now().isAfter(dueAt)) {
+      throw new DomainException("O pagamento expirou em: " + formatter.format(dueAt));
+    }
+    this.status = PaymentStatusEnum.PAID;
+    return "O pagamento Nr. " + this.id + " foi efetuado com sucesso!";
+  }
 
 }

@@ -10,5 +10,6 @@ import org.mapstruct.ReportingPolicy;
 public interface PaymentMapperApp {
 
   PaymentDTO toDTO(Payment payment);
+  Payment toDomain(PaymentDTO paymentDTO);
 
 }

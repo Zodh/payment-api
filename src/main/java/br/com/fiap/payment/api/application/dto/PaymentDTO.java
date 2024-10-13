@@ -25,5 +25,13 @@ public class PaymentDTO {
   private String description;
   private LocalDateTime dueAt;
   private String callbackUrl;
+  private String paymentMessage;
+
+  public String getPaymentMessage() {
+    if (this.status == null || this.status != PaymentStatusEnum.PAID) {
+      return "O pagamento não foi efetuado!";
+    }
+    return paymentMessage;
+  }
 
 }

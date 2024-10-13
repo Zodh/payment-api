@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentRequest {
+public class CreatePaymentRequest {
 
   private Long externalPaymentId;
   private Long externalProductId;
