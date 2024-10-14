@@ -22,6 +22,7 @@ public class CreatePaymentUseCase {
     );
     PaymentDTO validPayment = paymentMapper.toDTO(payment);
     validPayment.setCallbackUrl(paymentDTO.getCallbackUrl());
+    validPayment.setDescription(paymentDTO.getDescription());
     return paymentRepository.save(validPayment);
   }
 
