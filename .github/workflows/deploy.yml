@@ -1,0 +1,17 @@
+name: "Build, teste e análise de código"
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: "Deploy AWS"
+        shell: bash
+        run: |
+          echo "Deploy in progress..."
