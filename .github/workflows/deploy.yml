@@ -1,4 +1,4 @@
-name: "Build, teste e análise de código"
+name: "Deploy"
 
 on:
   push:
