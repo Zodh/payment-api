@@ -27,7 +27,7 @@ jobs:
       run: mvn -B package -f pom.xml
 
   analyze:
-    name: "Análise de código" (${{ matrix.language }})
+    name: Análise de código (${{ matrix.language }})
     needs: build
 
     runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
