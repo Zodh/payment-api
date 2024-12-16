@@ -25,6 +25,6 @@ spec:
             - name: FASTFOOD_DATABASE_PASSWORD
               value: "cG9zdGdyZXNwdw=="
             - name: PAYMENT_API_HOST
-              value: "https://p92ysh7yg7.execute-api.us-east-1.amazonaws.com/prod"
+              value: "http://a8bba98ebd8a743b496a5f3a93c6c32c-1263291694.us-east-1.elb.amazonaws.com"
             - name: PAYMENT_API_PORT
               value: "0"

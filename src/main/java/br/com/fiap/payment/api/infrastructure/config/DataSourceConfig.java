@@ -24,12 +24,6 @@ public class DataSourceConfig {
     String decodedUsername = new String(Base64.getDecoder().decode(encodedUsername));
     String decodedPassword = new String(Base64.getDecoder().decode(encodedPassword));
 
-    System.out.println("-----");
-    System.out.println(dbUrl);
-    System.out.println(decodedUsername);
-    System.out.println(decodedPassword);
-    System.out.println("-----");
-
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
     dataSource.setUrl(dbUrl);
     dataSource.setDriverClassName(dbDriver);
