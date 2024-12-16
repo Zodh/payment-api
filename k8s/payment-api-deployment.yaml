@@ -21,15 +21,9 @@ spec:
             - name: FASTFOOD_DATABASE_URL
               value: "jdbc:postgresql://mydb-instance.ccxwd0i0ifa8.us-east-1.rds.amazonaws.com:5432/postgres"
             - name: FASTFOOD_DATABASE_USER
-              valueFrom:
-                secretKeyRef:
-                  name: fastfood-secret
-                  key: POSTGRES_USER
+              value: "cG9zdGdyZXM="
             - name: FASTFOOD_DATABASE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: fastfood-secret
-                  key: POSTGRES_PASSWORD
+              value: "cG9zdGdyZXNwdw=="
             - name: PAYMENT_API_HOST
               value: "https://p92ysh7yg7.execute-api.us-east-1.amazonaws.com/prod"
             - name: PAYMENT_API_PORT
