@@ -64,9 +64,11 @@ jobs:
         run: aws eks update-kubeconfig --name ${{ secrets.CLUSTER_NAME }} --region ${{ secrets.REGION }}
 
       - name: "Aplicando deployment e service"
-        run: |  
-          kubectl apply -f .\k8s\payment-api-deployment.yaml
-          kubectl apply -f .\k8s\payment-api-service.yaml
+        run: |
+          pwd
+          ls
+          kubectl apply -f k8s/payment-api-deployment.yaml
+          kubectl apply -f k8s/payment-api-service.yaml
 
       - name: "Atualiza versao da imagem no k8s"
         run: |
