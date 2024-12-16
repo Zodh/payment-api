@@ -14,7 +14,8 @@ public class PaymentUrlGeneratorGatewayImpl implements ServerUrlGeneratorGateway
 
   @Override
   public String generate(Long paymentId) {
-    return host + ":" + port + "/payments/" + paymentId;
+    String portValue = (port > 0) ? ":" + port : "";
+    return host + portValue + "/payments/" + paymentId;
   }
 
 }
