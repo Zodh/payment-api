@@ -33,4 +33,4 @@ spec:
             - name: PAYMENT_API_HOST
               value: "https://p92ysh7yg7.execute-api.us-east-1.amazonaws.com/prod"
             - name: PAYMENT_API_PORT
-              value: ""
+              value: "0"
