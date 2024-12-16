@@ -65,8 +65,9 @@ jobs:
 
       - name: "Aplicando deployment e service"
         run: |  
-          kubectl apply -f ./k8s/payment-api-deployment.yml
-          kubectl apply -f ./k8s/payment-api-service.yml
+          kubectl apply -f .\k8s\payment-api-deployment.yaml
+          kubectl apply -f .\k8s\payment-api-service.yaml
+
       - name: "Atualiza versao da imagem no k8s"
         run: |
           kubectl set image deployment/payment-api payment-api=${{ secrets.DOCKERHUB_USER }}/payment-api:${{ github.sha }} --record
