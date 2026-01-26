@@ -29,7 +29,7 @@
 	<properties>
 		<java.version>21</java.version>
 		<org.junit.jupiter.version>5.10.3</org.junit.jupiter.version>
-		<org.assertj.version>3.26.3</org.assertj.version>
+		<org.assertj.version>3.27.7</org.assertj.version>
 		<org.projectlombok.version>1.18.34</org.projectlombok.version>
 		<springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
